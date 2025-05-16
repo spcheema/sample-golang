@@ -10,4 +10,4 @@ RUN go build -o server .
 RUN ls -lah
 EXPOSE 8080
 
-CMD ["/server"]
+CMD ["./server"]
