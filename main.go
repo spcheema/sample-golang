@@ -125,7 +125,7 @@ func main() {
 		})
 	}
 
-	bindAddr := fmt.Sprintf(":%s", port)
+	bindAddr := fmt.Sprintf("0.0.0.0:%s", port)
 	lines := strings.Split(startupMessage, "\n")
 	fmt.Println()
 	for _, line := range lines {
