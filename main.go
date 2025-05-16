@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"os"
@@ -100,6 +101,12 @@ func main() {
 		}
 		requestID := uuid.Must(uuid.NewV4())
 		fmt.Fprint(w, requestID.String())
+	})
+
+	http.HandleFunc("/healthcheck", func(w http.ResponseWriter, r *http.Request) {
+		logRequest(r)
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
 	})
 
 	port := os.Getenv("PORT")
