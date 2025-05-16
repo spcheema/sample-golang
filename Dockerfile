@@ -1,13 +1,13 @@
 FROM golang:latest
 
-#WORKDIR /app
+WORKDIR /app
 
 COPY . .
 
 RUN go mod tidy
-RUN go build -o go-sample-app .
+RUN go build -o server .
 
 RUN ls -lah
 EXPOSE 8080
 
-CMD ["/app/server"]
+CMD ["/server"]
