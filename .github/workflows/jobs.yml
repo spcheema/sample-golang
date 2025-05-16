@@ -73,6 +73,7 @@ jobs:
       - name: Check service health
         run: |
           docker ps
+          curl -i -s http://localhost:8080/healthcheck
           for i in {1..5}; do
            curl -i -s http://localhost:8080/healthcheck
             STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/healthcheck)
