@@ -5,9 +5,9 @@ WORKDIR /app
 COPY . .
 
 RUN go mod tidy
-RUN go build -o server .
+RUN go build -o /app/server .
 
-RUN ls -lah
+RUN ls -lah /app
 EXPOSE 8080
 
-CMD ["./server"]
+CMD ["/app/server"]
