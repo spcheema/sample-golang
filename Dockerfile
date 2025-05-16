@@ -8,6 +8,9 @@ RUN go mod tidy
 RUN go build -o /app/server .
 
 RUN ls -lah /app
+
+RUN chmod +x /app/server
+
 EXPOSE 8080
 
 CMD ["/app/server"]
