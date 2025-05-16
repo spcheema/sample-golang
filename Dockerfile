@@ -1,6 +1,6 @@
 FROM golang:latest
 
-WORKDIR /app
+#WORKDIR /app
 
 COPY . .
 
@@ -10,4 +10,4 @@ RUN go build -o go-sample-app .
 RUN ls -lah
 EXPOSE 8080
 
-CMD ["./server"]
+CMD ["/app/server"]
